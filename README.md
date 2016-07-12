@@ -2,6 +2,7 @@
 
 ExternalConfig can be used for when you need to have a configuration file outside of your application but still want to use `Mix.Config` style.
 
+This becomes very useful when your application is a release.
 
 
 * see `test/support/sample.config` for example.
