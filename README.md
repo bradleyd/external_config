@@ -1,8 +1,10 @@
 # ExternalConfig
 
-ExternalConfig can be used for when you need to have a configuration file outside of your application but still want to use `Mix.Config` style.
+ExternalConfig can be used when you need to have a configuration file outside of your application or release, but still want to use a `Mix.Config` style.
 
-This becomes very useful when your application is a release.
+I use this pattern primarily in releases.  I do not have to worry about dynamic ENV vars being set for different environments during compile time.  I let my deployment tool create the config file and place it accordingly.  
+
+The concept is this:  Create a gen_server (see example application) that reads the config in and saves it state.  This child should be started before the module that will need to call it.
 
 
 * see `test/support/sample.config` for example.
