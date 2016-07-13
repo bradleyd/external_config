@@ -3,29 +3,34 @@ defmodule ExternalConfig.Mixfile do
 
   def project do
     [app: :external_config,
-     version: "0.1.0",
-     elixir: "~> 1.2",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+      version: "0.1.0",
+      elixir: "~> 1.2",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      deps: deps()]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
   def application do
     [applications: [:logger]]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
+  defp description do
+    """
+    ExternalConfig provides a way to use an external configuration file in a release or standalone.
+    This is an alternative to using relx replace vars or crystalizing ENV vars during `mix release` 
+    """
+  end
+
+  defp package do
+    [
+      name: :external_config,
+      files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+      maintainers: ["Bradley Smith"],
+      licenses: ["Apache 2.0"],
+      links: %{"GitHub" => "https://github.com/bradleyd/external_config",
+	"Docs" => ""}
+    ]
+  end
   defp deps do
     []
   end
