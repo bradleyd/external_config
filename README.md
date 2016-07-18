@@ -11,6 +11,7 @@ The concept is this:  Create a gen_server (see example application) that reads t
 
 * see usage example in `examples`
 
+This is heavily borrowed from `Mix.Config`.
 
 * TODO better docs
 
