@@ -1,15 +1,17 @@
 defmodule ExternalConfig.Mixfile do
   use Mix.Project
 
+  @version "0.1.0"
+
   def project do
     [app: :external_config,
       version: "0.1.0",
       elixir: "~> 1.0",
-      build_embedded: Mix.env == :prod,
-      start_permanent: Mix.env == :prod,
+      build_embedded: false,
+      start_permanent: false,
       source_url: "https://github.com/bradleyd/external_config",
-      description: description,
-      package: package,
+      description: description(),
+      package: package(),
       deps: deps()]
   end
 
@@ -19,14 +21,13 @@ defmodule ExternalConfig.Mixfile do
 
   defp description do
     """
-    ExternalConfig provides a way to use an external configuration (to your application) file in a release or application. 
+    ExternalConfig provides a way to use an external mix style configuration (to your application) file in a release or application. 
     """
   end
 
   defp package do
     [
       files: ["lib", "mix.exs", "README.md", "LICENSE"],
-      name: :external_config,
       maintainers: ["Bradley Smith"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/bradleyd/external_config"}
