@@ -8,6 +8,7 @@ defmodule ExternalConfig do
     end
   end
 
+  @moduledoc false
 
   defmacro __using__(_) do
     quote do
@@ -29,7 +30,6 @@ defmodule ExternalConfig do
       [{unquote(app), [{unquote(key), unquote(opts)}]}])
     end
   end
-
 
   def read!(file) do
     try do
